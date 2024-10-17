@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+
+const sections = [
+  { title: 'History', href: '/humanities/history' },
+  { title: 'Philosophy', href: '/humanities/philosophy' },
+  { title: 'Literature', href: '/humanities/literature' },
+  { title: 'Arts', href: '/humanities/arts' },
+];
+
+const articles = [
+  {
+    title: 'Lost Ancient Text Discovered in Egyptian Tomb',
+    excerpt: 'Archaeologists uncover a well-preserved ancient manuscript that sheds new light on Egyptian history.',
+    href: '/article/ancient-egyptian-text',
+    image: 'https://via.placeholder.com/800x400.png?text=Ancient+Egyptian+Text',
+  },
+  {
+    title: 'New Interpretation of Nietzsche's Works Sparks Debate',
+    excerpt: 'A philosopher's controversial analysis of Nietzsche's writings challenges long-held interpretations.',
+    href: '/article/nietzsche-interpretation',
+    image: 'https://via.placeholder.com/800x400.png?text=Nietzsche+Philosophy',
+  },
+  {
+    title: 'AI-Generated Novel Wins Prestigious Literary Award',
+    excerpt: 'An AI-authored novel receives critical acclaim, raising questions about creativity and authorship.',
+    href: '/article/ai-novel-award',
+    image: 'https://via.placeholder.com/800x400.png?text=AI+Novel',
+  },
+];
+---
+
+<Layout title="Humanities - News Website">
+  <h1 class="text-4xl font-bold mb-8">Humanities</h1>
+  
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+    {sections.map((section) => (
+      <a href={section.href} class="bg-yellow-500 text-white p-4 rounded-lg text-center font-semibold hover:bg-yellow-600 transition-colors">
+        {section.title}
+      </a>
+    ))}
+  </div>
+
+  <h2 class="text-2xl font-semibold mb-4">Latest in Humanities</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {articles.map((article) => (
+      <ArticleCard {...article} />
+    ))}
+  </div>
+</Layout>

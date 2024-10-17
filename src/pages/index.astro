@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+
+const sections = [
+  { title: 'Sciences', href: '/sciences' },
+  { title: 'Applied Sciences', href: '/applied-sciences' },
+  { title: 'Humanities', href: '/humanities' },
+];
+
+const featuredArticles = [
+  {
+    title: 'Breakthrough in Quantum Computing',
+    excerpt: 'Scientists achieve a major milestone in quantum computing, paving the way for future advancements.',
+    href: '/article/quantum-computing-breakthrough',
+    image: 'https://via.placeholder.com/800x400.png?text=Quantum+Computing',
+  },
+  {
+    title: 'New AI Model Revolutionizes Natural Language Processing',
+    excerpt: 'A cutting-edge AI model shows unprecedented performance in understanding and generating human-like text.',
+    href: '/article/ai-natural-language-processing',
+    image: 'https://via.placeholder.com/800x400.png?text=AI+NLP',
+  },
+  {
+    title: 'Ancient Civilization Discovered in South America',
+    excerpt: 'Archaeologists unearth evidence of a previously unknown ancient civilization in the Amazon rainforest.',
+    href: '/article/ancient-civilization-discovery',
+    image: 'https://via.placeholder.com/800x400.png?text=Ancient+Civilization',
+  },
+];
+---
+
+<Layout title="News Website - Home">
+  <h1 class="text-4xl font-bold mb-8">Latest News</h1>
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+    {sections.map((section) => (
+      <a href={section.href} class="bg-blue-500 text-white p-6 rounded-lg text-center text-xl font-semibold hover:bg-blue-600 transition-colors">
+        {section.title}
+      </a>
+    ))}
+  </div>
+
+  <h2 class="text-2xl font-semibold mb-4">Featured Articles</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {featuredArticles.map((article) => (
+      <ArticleCard {...article} />
+    ))}
+  </div>
+</Layout>
